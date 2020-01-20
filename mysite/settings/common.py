@@ -15,10 +15,6 @@ def get_secret(setting, secret=secret):
         msg = "Set key '{0}' in secret.json".format(setting)
 
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -40,6 +36,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'mysite.schema.schema' # Where your Graphene schema lives
+}
 
 ROOT_URLCONF = 'mysite.urls'
 
