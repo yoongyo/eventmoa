@@ -7,7 +7,7 @@ class EventAdmin(admin.ModelAdmin):
 
 
 class PartnerAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['partner']
 
 
 class HashTagAdmin(admin.ModelAdmin):

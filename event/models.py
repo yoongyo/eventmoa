@@ -38,7 +38,7 @@ class Event(models.Model):
     image4 = models.ImageField(blank=True, null=True)
     image5 = models.ImageField(blank=True, null=True)
 
-    hashTag = models.ManyToManyField(HashTag)
+    hashTag = models.ManyToManyField(HashTag, blank=True)
 
     def __str__(self):
         return self.title
