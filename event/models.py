@@ -5,6 +5,7 @@ from django.conf import settings
 class Partner(models.Model):
     partner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     image = models.ImageField(blank=True, null=True)
+    phone = models.CharField(max_length=11, blank=True, null=True)
 
     def __str__(self):
         return self.partner.username
@@ -18,11 +19,11 @@ class HashTag(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=100)
     partner = models.ForeignKey(Partner, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=11, blank=True, null=True)
 
+    title = models.CharField(max_length=100)
     thumbnail = models.ImageField()
+    content = models.TextField(blank=True, null=True)
     start = models.CharField(max_length=100)
     end = models.CharField(max_length=100)
     url = models.CharField(max_length=100, blank=True, null=True)
@@ -31,7 +32,6 @@ class Event(models.Model):
     discountPrice = models.CharField(max_length=100)
     discountRate = models.CharField(max_length=100)
 
-    content = models.TextField(blank=True, null=True)
     image1 = models.ImageField(blank=True, null=True)
     image2 = models.ImageField(blank=True, null=True)
     image3 = models.ImageField(blank=True, null=True)
