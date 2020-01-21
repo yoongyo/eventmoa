@@ -4,11 +4,17 @@ from django.conf import settings
 
 class Partner(models.Model):
     partner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField(blank=True, null=True)
+
+    def __str__(self):
+        return self.partner.username
 
 
 class HashTag(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Event(models.Model):
@@ -34,8 +40,14 @@ class Event(models.Model):
 
     hashTag = models.ManyToManyField(HashTag)
 
+    def __str__(self):
+        return self.title
+
 
 class Comment(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField()
+
+    def __str__(self):
+        return self.user.username
