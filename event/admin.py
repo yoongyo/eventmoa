@@ -14,6 +14,6 @@ class HashTagAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
-admin.site.register(HashTagAdmin, HashTag)
-admin.site.register(EventAdmin, Event)
-admin.site.regitser(PartnerAdmin, Partner)
+admin.site.register(HashTag, HashTagAdmin)
+admin.site.register(Event, EventAdmin)
+admin.site.regitser(Partner, PartnerAdmin)
