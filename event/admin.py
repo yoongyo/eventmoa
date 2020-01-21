@@ -16,4 +16,4 @@ class HashTagAdmin(admin.ModelAdmin):
 
 admin.site.register(HashTag, HashTagAdmin)
 admin.site.register(Event, EventAdmin)
-admin.site.regitser(Partner, PartnerAdmin)
+admin.site.register(Partner, PartnerAdmin)
