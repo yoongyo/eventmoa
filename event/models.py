@@ -2,13 +2,18 @@ from django.db import models
 from django.conf import settings
 
 
+class Partner(models.Model):
+    partner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    image = models.ImageField()
+
+
 class HashTag(models.Model):
     name = models.CharField(max_length=100)
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=100)
-    provider = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
+    partner = models.ForeignKey(Partner, on_delete=models.CASCADE)
     phone = models.CharField(max_length=11, blank=True, null=True)
 
     thumbnail = models.ImageField()
