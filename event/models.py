@@ -3,12 +3,14 @@ from django.conf import settings
 
 
 class Partner(models.Model):
-    partner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    admin = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
     image = models.ImageField(blank=True, null=True)
     phone = models.CharField(max_length=11, blank=True, null=True)
+    email = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return self.partner.username
+        return self.name
 
 
 class HashTag(models.Model):
