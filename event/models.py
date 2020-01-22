@@ -5,7 +5,7 @@ from django.conf import settings
 class Partner(models.Model):
     admin = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    image = models.ImageField(blank=True, null=True)
+    logo = models.ImageField(blank=True, null=True)
     phone = models.CharField(max_length=11, blank=True, null=True)
     email = models.CharField(max_length=100, blank=True, null=True)
 
