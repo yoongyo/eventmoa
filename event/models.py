@@ -13,6 +13,18 @@ class Partner(models.Model):
         return self.name
 
 
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    partner = models.ForeignKey(Partner, on_delete=models.CASCADE)
+    price = models.CharField(max_length=100)
+    discount = models.CharField(max_length=100)
+    thumbnail = models.ImageField()
+    content = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
 class HashTag(models.Model):
     name = models.CharField(max_length=100)
 
